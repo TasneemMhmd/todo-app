@@ -14,9 +14,7 @@
 
 body {
     background-color: var(--pinky-bg);
-
 }
-
 
 html,
 body {
@@ -27,9 +25,13 @@ body {
 }
 
 .todo-container {
+    min-height: 600px;
+    height: 100%;
     background-color: var(--pinky-white);
     border-color: var(--pinky-border);
     overflow: hidden;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .todo-header {
@@ -42,8 +44,8 @@ body {
 
 #task-list {
     overflow-y: auto;
-    max-height: calc(100vh - 300px);
-    /* جعل القائمة قابلة للتمرير حسب حجم الشاشة */
+    max-height: calc(100vh - 320px);
+    padding-bottom: 10px;
 }
 
 .app-title {
@@ -58,8 +60,6 @@ body {
 .heart-icon:hover {
     animation: heart-beat 0.5s infinite;
 }
-
-
 
 .gradient-border {
     background: linear-gradient(to right, var(--pinky-light), var(--pinky-primary), var(--pinky-light));
@@ -94,6 +94,22 @@ body {
 .motivation-box {
     background-color: var(--pinky-bg);
     border: 1px solid var(--pinky-light);
+    width: 80%;
+    position: absolute;
+    bottom: 7px;
+    left: 40px;
+    right: 0;
+    z-index: 10;
+
+}
+
+.motivation-line {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    right: 0;
+    z-index: 10;
+    width: 90%;
 }
 
 .motivation-text {
@@ -163,6 +179,8 @@ body {
 
 #task-list::-webkit-scrollbar-track {
     background: var(--pinky-light);
+    border-radius: 7px;
+    margin: 20px auto;
 }
 
 #task-list::-webkit-scrollbar-thumb {
@@ -174,7 +192,6 @@ body {
 #task-list::-webkit-scrollbar-thumb:hover {
     background-color: var(--pinky-deep);
 }
-
 
 @media (max-width: 768px) {
     .todo-container {
@@ -207,13 +224,21 @@ body {
         right: 0;
         z-index: 10;
         margin: 0;
+        width: 100%;
     }
+
     .motivation-line {
         position: fixed;
         bottom: 50px;
+        width: 100%;
         left: 0;
         right: 0;
         z-index: 10;
         margin: 0;
+    }
+
+    #task-list {
+        max-height: calc(100vh - 250px);
+        padding-bottom: 10px;
     }
 }
